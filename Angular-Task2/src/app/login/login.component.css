@@ -8,7 +8,7 @@
     flex-direction: column; /* Stack elements vertically */
     justify-content: center;
     align-items: center;
-    height: 40vh;
+    height: 50vh;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #f9f9f9;
@@ -21,16 +21,20 @@ h1{
 }
 .form-group {
     display: flex;
-    flex-direction: row; /* Ensures label and input are stacked */
-    align-items: center; /* Centers elements */
+    flex-direction: column; /* Ensures label and input are stacked */
+    align-items: flex-start; /* Centers elements */
     margin-top: 20px;
-    text-align: center;
+    text-align: left;
     font-size: 30px;
     gap: 10px;
+    width: 100%;
+}
+.form-group label {
+    margin-bottom: 5px; 
 }
 
 .form-control {
-    width: 80%; /* Adjust width for better alignment */
+    width: 100%; /* Adjust width for better alignment */
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -40,6 +44,7 @@ h1{
     display: flex;
     justify-content: center; /* Centers the button horizontally */
     margin-top: 30px;
+    width: 100%;
 }
 
 button {
@@ -48,7 +53,7 @@ button {
     color: white;
     border: none;
     border-radius: 4px;
-    height:430%;
+    height:auto;
     width: 40%;
     cursor: pointer;
     text-align: center;
@@ -56,4 +61,10 @@ button {
 
 button:hover {
     background-color: #174655;
+}
+.error {
+    color: red;
+    font-size: 14px;
+    text-align: left;
+    margin-top: 5px;
 }

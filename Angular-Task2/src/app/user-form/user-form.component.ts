@@ -16,10 +16,12 @@ export class UserFormComponent implements OnInit {
       name: ['', Validators.required],
       DOB: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      phoneNumber: ['', Validators.pattern('^[0-9]{10}$')], // Basic 10-digit phone number validation
-      instituteName: [''],
-      degree: [''],
-      percentage: [null],
+      phoneNumber: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]], // Added required validator
+      education: this.fb.group({
+        instituteName: ['', Validators.required],
+        degree: ['', Validators.required],
+        percentage: ['', [Validators.required, Validators.min(0), Validators.max(100)]]
+      }),
       hobbies: this.fb.array([]), // FormArray for checkboxes
       gender: ['', Validators.required],
       address: [''],
@@ -42,7 +44,8 @@ export class UserFormComponent implements OnInit {
       console.log(this.userForm.value);
       // You can now send this data to your backend or perform other actions
     } else {
-      // Handle form validation errors
+      // Trigger validation on all fields to display errors
+      this.markAllAsTouched();
       console.log('Form is invalid. Please check the fields.');
       // You might want to display error messages to the user
     }
@@ -53,5 +56,19 @@ export class UserFormComponent implements OnInit {
     // Reset the hobbies FormArray as well, as reset() might not clear it properly
     const hobbies: FormArray = this.userForm.get('hobbies') as FormArray;
     hobbies.clear();
+  }
+
+  // Helper function to mark all form controls as touched
+  private markAllAsTouched() {
+    Object.keys(this.userForm.controls).forEach(key => {
+      this.userForm.get(key)?.markAsTouched();
+      if (this.userForm.get(key) instanceof FormGroup) {
+        Object.keys((this.userForm.get(key) as FormGroup).controls).forEach(innerKey => {
+          (this.userForm.get(key) as FormGroup).get(innerKey)?.markAsTouched();
+        });
+      } else if (this.userForm.get(key) instanceof FormArray) {
+        (this.userForm.get(key) as FormArray).controls.forEach(control => control.markAsTouched());
+      }
+    });
   }
 }

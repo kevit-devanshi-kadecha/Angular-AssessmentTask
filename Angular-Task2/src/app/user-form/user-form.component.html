@@ -5,6 +5,9 @@
             <div class="form-group">
                 <label for="name" class="form-label">Name</label>
                 <input type="text" formControlName="name" class="form-control" id="name" placeholder="Name">
+                <div *ngIf="userForm.controls['name'].invalid && userForm.controls['name'].touched" class="error">
+                    Name is required.
+                  </div>
             </div>
             <div class="form-group">
                 <label for="DOB" class="form-label">Date Of Birth</label>
@@ -12,29 +15,34 @@
             </div>
             <div class="form-group">
                 <label for="email" class="form-label">Email</label>
-                <input type="text" formControlname="email" class="form-control" id="email" placeholder="Enter your email">
+                <input type="text" formControlName="email" class="form-control" id="email" placeholder="Enter your email">
+                <div *ngIf="userForm.controls['email'].invalid && userForm.controls['email'].touched" class="error">
+                    <div *ngIf="userForm.controls['email'].errors?.['required']">Email is required.</div>
+                    <div *ngIf="userForm.controls['email'].errors?.['email']">Enter a valid email.</div>
+                  </div>
             </div>
             <div class="form-group">
                 <label for="phoneNumber" class="form-label">Phone Number</label>
                 <input type="text" formControlName="phoneNumber" class="form-control" id="phoneNumber" placeholder="Enter your Phone Name">
+                <div *ngIf="userForm.controls['phoneNumber'].invalid && userForm.controls['phoneNumber'].touched" class="error">
+                    <div *ngIf="userForm.controls['phoneNumber'].errors?.['required']">Phone number is required.</div>
+                    <div *ngIf="userForm.controls['phoneNumber'].errors?.['pattern']">Enter a valid 10-digit phone number.</div>
+                  </div>
             </div>
-            <fieldset>
-                <legend>Education</legend>
+            <fieldset formGroupName="education">
                 <div class="form-group">
                   <label>Institute Name:</label>
                   <input type="text" formControlName="instituteName" class="form-control" />
                 </div>
-          
                 <div class="form-group">
                   <label>Degree:</label>
                   <input type="text" formControlName="degree" class="form-control" />
                 </div>
-          
                 <div class="form-group">
                   <label>Percentage:</label>
                   <input type="number" formControlName="percentage" class="form-control" />
                 </div>
-            </fieldset>
+              </fieldset>
             <div class="form-group">
                 <label>Hobbies:</label>
                 <div class="hobbies-options">

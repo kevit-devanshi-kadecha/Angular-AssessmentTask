@@ -1,0 +1,59 @@
+.logincontainer {
+    margin-top: 100px;
+    margin-left: 30%;
+    margin-right: 30%;
+    padding: 20px;
+    width: 40%;
+    display: flex; /* Enable flexbox */
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+h1{
+    text-align: center;
+    color: #174655;
+    font-size: 50px;
+}
+.form-group {
+    display: flex;
+    flex-direction: row; /* Ensures label and input are stacked */
+    align-items: center; /* Centers elements */
+    margin-top: 20px;
+    text-align: center;
+    font-size: 30px;
+    gap: 10px;
+}
+
+.form-control {
+    width: 80%; /* Adjust width for better alignment */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center; /* Centers the button horizontally */
+    margin-top: 30px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    height:430%;
+    width: 40%;
+    cursor: pointer;
+    text-align: center;
+}
+
+button:hover {
+    background-color: #174655;
+}

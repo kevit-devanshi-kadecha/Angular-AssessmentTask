@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   constructor(private fb: FormBuilder, private router: Router) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+      password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(8)]]
     });
   }
   
@@ -31,6 +31,15 @@ export class LoginComponent implements OnInit {
 
       // Navigate to User Form on success
       this.router.navigate(['/userform']);
+    }else {
+      this.markAllAsTouched();
+      console.log("Form is invalid. Please check the fields.");
     }
+  }
+
+  markAllAsTouched() {
+    Object.keys(this.loginForm.controls).forEach(controlName => {
+      this.loginForm.controls[controlName].markAsTouched();
+    });
   }
 }

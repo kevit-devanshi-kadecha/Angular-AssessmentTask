@@ -117,3 +117,8 @@ input[type="checkbox"] {
     align-items: center;
     gap: 5px;
 }
+.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}

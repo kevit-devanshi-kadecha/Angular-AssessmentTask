@@ -1,0 +1,90 @@
+<div class="UserformContainer">
+    <div class="Userform">
+        <h1>User Form</h1>
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" formControlName="name" class="form-control" id="name" placeholder="Name">
+            </div>
+            <div class="form-group">
+                <label for="DOB" class="form-label">Date Of Birth</label>
+                <input type="date" formControlName="DOB" class="form-control" id="DOB" placeholder="Enter your Date of Birth">
+            </div>
+            <div class="form-group">
+                <label for="email" class="form-label">Email</label>
+                <input type="text" formControlname="email" class="form-control" id="email" placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label for="phoneNumber" class="form-label">Phone Number</label>
+                <input type="text" formControlName="phoneNumber" class="form-control" id="phoneNumber" placeholder="Enter your Phone Name">
+            </div>
+            <fieldset>
+                <legend>Education</legend>
+                <div class="form-group">
+                  <label>Institute Name:</label>
+                  <input type="text" formControlName="instituteName" class="form-control" />
+                </div>
+          
+                <div class="form-group">
+                  <label>Degree:</label>
+                  <input type="text" formControlName="degree" class="form-control" />
+                </div>
+          
+                <div class="form-group">
+                  <label>Percentage:</label>
+                  <input type="number" formControlName="percentage" class="form-control" />
+                </div>
+            </fieldset>
+            <div class="form-group">
+                <label>Hobbies:</label>
+                <div class="hobbies-options">
+                    <label>
+                        <input type="checkbox" formControlName="hobbies" value="Reading"> Reading
+                    </label>
+                    <label>
+                        <input type="checkbox" formControlName="hobbies" value="Writing"> Writing
+                    </label>
+                    <label>
+                        <input type="checkbox" formControlName="hobbies" value="Singing"> Singing
+                    </label>
+                    <label>
+                        <input type="checkbox" formControlName="hobbies" value="Dancing"> Dancing
+                    </label>
+                    <label>
+                        <input type="checkbox" formControlName="hobbies" value="Travelling"> Travelling
+                    </label>
+                </div>
+            </div>
+              
+            <div class="form-group">
+                <label>Gender:</label>
+                <div class="gender-options">
+                    <label>
+                        <input type="radio" formControlName="gender" value="Male"> Male
+                    </label>
+                    <label>
+                        <input type="radio" formControlName="gender" value="Female"> Female
+                    </label>
+                    <label>
+                        <input type="radio" formControlName="gender" value="Other"> Other
+                    </label>
+                </div>
+            </div>
+        
+            <div class="form-group">
+                <label>Address:</label>
+                <textarea formControlName="address" class="form-control"></textarea>
+            </div>
+        
+            <div class="form-group">
+                <label>Summary:</label>
+                <textarea formControlName="summary" class="form-control"></textarea>
+            </div>
+        
+            <div class="form-actions">
+                <button type="button" (click)="onReset()" class="btn btn-secondary">Reset</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
